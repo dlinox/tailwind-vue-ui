@@ -35,172 +35,115 @@
     >
       <main class="flex-1">
         <h2 class="text-2xl font-bold mb-4">Inicio</h2>
-        {{ showSidebar }}
-
         <button
           @click="showSidebar = !showSidebar"
-          class="mb-4 bg-blue-500 text-white p-2 rounded"
+          class="bg-blue-500 p-2 text-white"
         >
-          {{ showSidebar ? "Ocultar" : "Mostrar" }} Sidebar
+          showSidebar
         </button>
+        <h3 class="text-2xl uppercase my-4">component</h3>
+        <div class="mb-5 px-5">
+          <h5 class="text-xl uppercase my-3">#badges</h5>
+          <div class="bg-white p-5 flex gap-2 items-end flex-wrap">
+            <LBadges color="red" variant="outlined" density="sm" rounded="xl" />
+            <LBadges color="blue" variant="tonal" density="sm" rounded="md" />
+            <LBadges color="red" variant="tonal" density="md" rounded="sm" />
+            <LBadges color="teal" variant="flat" density="md" rounded="md" />
+            <LBadges color="blue" variant="text" density="md" rounded="sm" />
+          </div>
+        </div>
 
-        <LInputText
-          v-model="textValue"
-          :required="true"
-          :minLength="5"
-          :maxLength="10"
-        >
-          <template #icon-start>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
+        <div class="mb-5 px-5">
+          <h5 class="text-xl uppercase my-3">#buttons</h5>
+          <div class="bg-white p-5 flex flex-wrap gap-2 items-end">
+            <LButton
+              @click="loadingBtn = !loadingBtn"
+              :loading="loadingBtn"
+              density="sm"
+              color="blue"
+              rounded="full"
+              prepend-icon="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z"
+              append-icon="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-              />
-            </svg>
-          </template>
-          <template #icon-end>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-              />
-            </svg>
-          </template>
-        </LInputText>
+              asd
+            </LButton>
+            <LButton
+              density="md"
+              color="red"
+              text="default"
+              :loading="loadingBtn"
+              @click="loadingBtn = !loadingBtn"
+            />
 
-        <LInputNumber
-          v-model="inputN"
-          :required="true"
-          :minLength="5"
-          :maxLength="10"
-        >
-        </LInputNumber>
+            <LButton
+              density="md"
+              color="red"
+              text="default"
+              variant="outlined"
+              @click="loadingBtn = !loadingBtn"
+            />
+            <LButton
+              density="lg"
+              color="blue"
+              text="default"
+              variant="outlined"
+              :loading="loadingBtn"
+              @click="loadingBtn = !loadingBtn"
+            />
 
-        <LInputEmail
-          v-model="inputE"
-          :required="true"
-          :minLength="5"
-          :maxLength="10"
-        >
-          <template #icon-start>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25"
-              />
-            </svg>
-          </template>
-        </LInputEmail>
+            <LButton
+              disabled
+              variant="variant"
+              :loading="loadingBtn"
+              @click="loadingBtn = !loadingBtn"
+              density="block"
+              color="blue"
+              text="default"
+              prepend-icon="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z"
+            />
+          </div>
+        </div>
 
-        <LSelectInput
-          v-model="inputS"
-          :required="true"
-          :options="[
-            { label: 'Opción 1', value: '1' },
-            { label: 'Opción 2', value: '2' },
-            { label: 'Opción 3', value: '3' },
-          ]"
-        >
-          <template #icon-start>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-              />
-            </svg>
-          </template>
-          <template #icon-end>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-              />
-            </svg>
-          </template>
-        </LSelectInput>
+        <div class="mb-5 px-5">
+          <h5 class="text-xl uppercase my-3">#CARD</h5>
+          <div class="bg-gray-200 p-5 flex flex-wrap gap-2 items-end">
+            <LCard title="title" sub-title="sub title">
+              <template #card-body> sada </template>
+              <template #card-footer>
+                <div class="flex justify-between flex-wrap gap-3">
+                  <LButton variant="tonal" color="red"> CANCELAR </LButton>
+                  <LButton> ACEPTAR </LButton>
+                </div>
+              </template>
+            </LCard>
+          </div>
+        </div>
 
-        <CustomSelect
-          :options="[
-            { label: 'Opción 1', value: '1' },
-            { label: 'Opción 2', value: '2' },
-            { label: 'Opción 3', value: '3' },
-          ]"
-          v-model="selectedValue"
-        />
+        <div class="mb-5 px-5">
+          <h5 class="text-xl uppercase my-3">#DIALOG</h5>
+          <div class="bg-gray-200 p-5 flex flex-wrap gap-2 items-end">
+            <LButton @click="showValue = !showValue"> Dialog</LButton>
+            <LDialog v-model="showValue">
+              <LCard title="modal" width="450px"> </LCard>
+            </LDialog>
+          </div>
+        </div>
 
-        <CustomRadioGroup
-          :options="[
-            { label: 'Opción 1', value: '1' },
-            { label: 'Opción 2', value: '2' },
-            { label: 'Opción 3', value: '3' },
-          ]"
-          v-model="selectedRadioValue"
-        />
-
-        {{ selectedRadioValue }}
-
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur
-        necessitatibus obcaecati libero suscipit similique asperiores rerum
-        culpa, explicabo, nam laudantium distinctio modi nesciunt quos aliquid
-        voluptas quo non laborum sed?
-
-        <Lcheckbox
-          :options="[
-            { label: 'Opción 1', value: '1' },
-            { label: 'Opción 2', value: '2' },
-            { label: 'Opción 3', value: '3' },
-          ]"
-          v-model="checkbox"
-
-        />
-
-        {{ checkbox }}
-
-        <Lradiosss
-          :options="[
-            { label: 'Opción 1', value: '1' },
-            { label: 'Opción 2', value: '2' },
-            { label: 'Opción 3', value: '3' },
-          ]"
-          v-model="rass"
-
-        />
-
-        {{ rass }}
+        <div class="mb-5 px-5">
+          <h5 class="text-xl uppercase my-3">#EXPANTION PANEL</h5>
+          <div class="bg-gray-200 p-5 flex flex-wrap gap-2 items-end">
+            <LExpansionPanels
+              v-model="panel1"
+              title="panel"
+              sub-title="sun titulo"
+            />
+            <LExpansionPanels
+              v-model="panel2"
+              title="panel"
+              sub-title="sun titulo"
+            />
+          </div>
+        </div>
       </main>
     </div>
   </div>
@@ -208,23 +151,16 @@
 
 <script setup>
 import { ref } from "vue";
-import LInputNumber from "./components/Base/LInputNumber.vue";
-import LInputText from "./components/Base/LInputText.vue";
-import LInputEmail from "./components/Base/LInputEmail.vue";
-import LSelectInput from "./components/Base/LSelectInput.vue";
-import CustomSelect from "./components/Base/CustomSelect.vue";
-import CustomRadioGroup from "./components/Base/CustomRadioGroup.vue";
-import Lcheckbox from "./components/Base/checkbox.vue";
-import Lradiosss from "./components/Base/radiosss.vue";
+import LBadges from "./components/Base/LBadges.vue";
+import LButton from "./components/Base/LButton.vue";
+import LCard from "./components/Base/LCard.vue";
+import LDialog from "./components/Base/LDialog.vue";
+import LExpansionPanels from "./components/Base/LExpansionPanels.vue";
 
-const textValue = ref("");
-const inputN = ref(null);
-const inputE = ref(null);
-const inputS = ref(null);
-const selectedValue = ref(null);
-const selectedRadioValue = ref(null);
 const showSidebar = ref(true);
+const loadingBtn = ref(false);
+const showValue = ref(false);
 
-const checkbox = ref([]);
-const rass = ref(null);
+const panel1 = ref(false);
+const panel2 = ref(false);
 </script>
